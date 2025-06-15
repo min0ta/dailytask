@@ -1,0 +1,154 @@
+/* Используем те же переменные, что и в login.css */
+:root {
+    --primary-color: #6c5ce7;
+    --primary-light: #a29bfe;
+    --secondary-color: #00cec9;
+    --error-color: #ff7675;
+    --success-color: #00b894;
+    --text-color: #2d3436;
+    --light-gray: #f5f6fa;
+    --medium-gray: #dfe6e9;
+    --dark-gray: #636e72;
+    --white: #ffffff;
+    --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Основные стили как в login.css */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.auth-header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.auth-header h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.auth-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.auth-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 500px;
+    margin: 20px 0;
+}
+
+/* ... остальные общие стили как в login.css ... */
+
+/* Специфичные стили для регистрации */
+.password-strength {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.strength-bar {
+    height: 4px;
+    flex-grow: 1;
+    background: var(--medium-gray);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.strength-bar::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: var(--error-color);
+    transition: width 0.3s ease, background 0.3s ease;
+}
+
+.password-strength.weak .strength-bar::after {
+    width: 30%;
+    background: var(--error-color);
+}
+
+.password-strength.medium .strength-bar::after {
+    width: 60%;
+    background: #fdcb6e;
+}
+
+.password-strength.strong .strength-bar::after {
+    width: 100%;
+    background: var(--success-color);
+}
+
+.strength-text {
+    font-size: 0.8rem;
+    color: var(--dark-gray);
+}
+
+.password-strength.weak .strength-text {
+    color: var(--error-color);
+}
+
+.password-strength.medium .strength-text {
+    color: #fdcb6e;
+}
+
+.password-strength.strong .strength-text {
+    color: var(--success-color);
+}
+
+.terms {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.terms input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+}
+
+.terms label {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+}
+
+.terms a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 30px 20px;
+    }
+    
+    .auth-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .auth-card-header h2 {
+        font-size: 1.5rem;
+    }
+}
